@@ -1,2 +1,10 @@
 apply plugin: 'groovy'
 apply plugin: 'jacoco'
+
+project(':delivery-planning-adapters') {
+
+    dependencies{
+        compile project (':delivery-planning-model')
+        compile("org.springframework.boot:spring-boot-starter-web")
+    }
+}
