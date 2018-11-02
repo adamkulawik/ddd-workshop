@@ -12,6 +12,7 @@ public class PlanCompletenessBuilder implements PlanCompletenessProvider {
     private Map<LocalDate, Part> parts = new HashMap<>();
     private Map<LocalDate, PlanCompleteness> completeness = new HashMap<>();
 
+    @Override
     public PlanCompleteness get(LocalDate date) {
         return completeness.computeIfAbsent(date, key -> {
             Part part = parts.getOrDefault(key, new Part());
