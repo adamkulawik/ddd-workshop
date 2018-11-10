@@ -1,10 +1,14 @@
 apply plugin: 'groovy'
 apply plugin: 'jacoco'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile(project(':delivery-planning-model'))
-    compile('org.springframework.cloud:spring-cloud-dependencies')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-test')
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    compile('org.springframework.cloud:spring-cloud-dependencies')
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+
 }
