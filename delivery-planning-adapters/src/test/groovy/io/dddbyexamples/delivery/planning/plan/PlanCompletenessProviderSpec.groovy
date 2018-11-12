@@ -15,7 +15,7 @@ class PlanCompletenessProviderSpec extends Specification {
         given:
         def date = LocalDate.now()
         currentDemandProvider = new TestCurrentDemandProvider()
-        planCompletenessProvider = new RestPlanCompletenessProvider(currentDemandProvider)
+        planCompletenessProvider = new PlanCompletenessProviderAdapter(currentDemandProvider)
 
         when:
         PlanCompleteness planCompletness = planCompletenessProvider.get(date)
@@ -23,12 +23,12 @@ class PlanCompletenessProviderSpec extends Specification {
         !planCompletness.anyMissing()
     }
 
-    def 'should provide fullfiled plan complentness'() {
+    def 'should provide fulfiled plan complentness'() {
         given:
         def date = LocalDate.now()
 
         currentDemandProvider = new TestCurrentDemandProvider(plan(date), demand(date))
-        planCompletenessProvider = new RestPlanCompletenessProvider(currentDemandProvider)
+        planCompletenessProvider = new PlanCompletenessProviderAdapter(currentDemandProvider)
 
         when:
         PlanCompleteness planCompletness = planCompletenessProvider.get(date)

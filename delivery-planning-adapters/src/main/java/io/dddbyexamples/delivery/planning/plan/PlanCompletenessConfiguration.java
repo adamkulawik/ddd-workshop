@@ -8,6 +8,6 @@ class PlanCompletenessConfiguration {
 
     @Bean
     PlanCompletenessProvider planCompletenessProvider(CurrentDemandProvider currentDemandProvider) {
-        return new RestPlanCompletenessProvider(currentDemandProvider);
+        return new PlanCompletenessProviderAdapter(currentDemandProvider);
     }
 }

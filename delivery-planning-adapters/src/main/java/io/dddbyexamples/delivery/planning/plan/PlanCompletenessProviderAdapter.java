@@ -9,11 +9,11 @@ import java.util.Map;
 
 import static java.util.stream.Collectors.toMap;
 
-class RestPlanCompletenessProvider implements PlanCompletenessProvider {
+class PlanCompletenessProviderAdapter implements PlanCompletenessProvider {
 
     private final CurrentDemandProvider currentDemandProvider;
 
-    RestPlanCompletenessProvider(CurrentDemandProvider currentDemandProvider) {
+    PlanCompletenessProviderAdapter(CurrentDemandProvider currentDemandProvider) {
         this.currentDemandProvider = currentDemandProvider;
     }
 
