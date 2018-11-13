@@ -11,8 +11,8 @@ import java.time.LocalDate
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*
 
-@SpringBootTest(classes = [AppRunner.class])
-class PlanCompletenessProviderIntegrationSpec extends Specification {
+@SpringBootTest(classes = AppRunner.class)
+public class PlanCompletenessProviderIntegrationSpec extends Specification {
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(8089)
