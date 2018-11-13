@@ -6,7 +6,6 @@ import io.vavr.CheckedFunction0;
 import io.vavr.control.Try;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
@@ -22,10 +21,7 @@ class RestCurrentDemandProvider implements CurrentDemandProvider {
     private final int retries;
     private final long waitDuration;
 
-    RestCurrentDemandProvider(RestTemplate restTemplate,
-                              @Value("${rest.url.demamds}") String demandsUrl,
-                              @Value("${rest.retries}") int retries,
-                              @Value("${rest.timeout}") long waitDuration) {
+    RestCurrentDemandProvider(RestTemplate restTemplate, String demandsUrl, int retries, long waitDuration) {
         this.restTemplate = restTemplate;
         this.demandsUrl = demandsUrl;
         this.retries = retries;
@@ -54,7 +50,7 @@ class RestCurrentDemandProvider implements CurrentDemandProvider {
 
     @Getter
     @AllArgsConstructor
-    private static class Demands {
+    static class Demands {
         static Demands emptyDemands = new Demands(emptyList());
 
         private List<CurrentDemand> demands;
