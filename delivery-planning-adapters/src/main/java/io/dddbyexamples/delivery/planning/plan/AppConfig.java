@@ -22,7 +22,8 @@ public class AppConfig {
         return new RestTemplate();
     }
 
-    private CurrentDemandProvider currentDemandProvider() {
+    @Bean
+    public CurrentDemandProvider currentDemandProvider() {
         return new RestCurrentDemandProvider(restTemplate(), demandsUrl, retries, waitDuration);
     }
 }
